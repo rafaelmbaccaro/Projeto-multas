@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" width=device-width, initial-scale=1.0>
+    <title>Cablick</title>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Calculadora de multas</legend>
+            
+            <label for="velocidade">Digite a velocidade do seu carro: </label>
+            <input type="number" id="velocidadeDoCarro"> <br>
+            
+            <label for="via30">Via de 30km/h</label>
+            <input type="radio" id="via30" name="radios" value="30"> <br>
+            <label for="via60">Via de 60km/h</label>
+            <input type="radio" id="via60" name="radios" value="60"> <br>
+            <label for="via90">Via de 90km/h</label>
+            <input type="radio" id="via90" name="radios" value="90"> <br>
+
+            <button type="button" onclick="calcular()">Calcular</button>
+            
+        </fieldset>
+    </form>
+</body>
+<script>
+    function calcular(){
+        let velocidadeCarro = Number(document.getElementById("velocidadeDoCarro").value)
+        let radios = document.getElementsByName("radios")
+        let velocidadeVia = 0
+        for(let i = 0; i < radios.length; i++){
+            if(radios[i].checked){
+            velocidadeVia = Number(radios[i].value)
+            break
+            }
+        }
+        if(velocidadeCarro > velocidadeVia){
+        alert("Você está acima da velodidade da via. Foi multado")
+        }
+        else{
+            alert("Você está dentro do limite da via, parabéns")
+        }
+        
+    }
+
+</script>
+</html>
